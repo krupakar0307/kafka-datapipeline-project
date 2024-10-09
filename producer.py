@@ -5,9 +5,12 @@ from time import sleep
 from json import dumps
 
 # API endpoint and parameters
+# this api endpoint is themoviedb which consists of movie details which is public.
 url = 'https://api.themoviedb.org/3/movie/top_rated'
+# you can keep apikey as a secret by replacing hardcoded values with environment variables
+# as this is demo, i have hardcoded values
 params = {
-    'api_key': 'aaa7de53dcab3a19afed86880f364e54',
+    'api_key': 'aaa7de53dcab3a19afed86880f364e54', 
     'language': 'en-US',
     'page': 1
 }
