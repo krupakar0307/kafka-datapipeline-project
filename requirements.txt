@@ -1,0 +1,5 @@
+kafka-python
+pandas
+requests
+s3fs
+awscli
