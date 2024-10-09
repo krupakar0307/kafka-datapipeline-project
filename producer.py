@@ -22,7 +22,7 @@ movies = data['results']
 
 # Convert to DataFrame and save to CSV
 df = pd.DataFrame(movies)
-# df.to_csv('top_rated_movies.csv', index=False) //to create the output in csv file uncomment this line
+# df.to_csv('top_rated_movies.csv', index=False) #to create the output in csv file uncomment this line
 
 # Initialize Kafka producer
 producer = KafkaProducer(
@@ -31,14 +31,14 @@ producer = KafkaProducer(
 )
 
 # Send a test message to the Kafka topic 'krupakar'
-# producer.send('krupakar', value={'key': 'value'})
+producer.send('krupakar', value={'key': 'value'})
 
 # Continuously sample and print data
 while True:
     dict_stock = df.sample(1).to_dict(orient="records")[0]
     producer.send('krupakar', value=dict_stock)
-    # print(dict_stock)  # Print the sampled data
-    # sleep(1)
+    print(dict_stock)  # Print the sampled data
+    sleep(1)
 
 # Flush the producer to ensure all messages are sent
 producer.flush()
