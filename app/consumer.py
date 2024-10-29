@@ -8,7 +8,7 @@ from datetime import datetime
 
 consumer = KafkaConsumer(
     'krupakar',
-     bootstrap_servers=['13.201.51.216:9092'], #add your IP here
+     bootstrap_servers=['13.201.51.216:9092'], #kafka brokers address.
     value_deserializer=lambda x: loads(x.decode('utf-8')))
 
 s3 = S3FileSystem()
@@ -24,4 +24,4 @@ for i in consumer:
         json.dump(i.value, file)
     
     # Optional: sleep to avoid timestamp collisions (optional based on your use case)
-    sleep(1)  # Sleep for 1 seco    
+    sleep(1)  # Sleep for 1 sec
