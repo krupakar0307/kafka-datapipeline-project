@@ -8,7 +8,7 @@ from datetime import datetime
 
 consumer = KafkaConsumer(
     'krupakar',
-     bootstrap_servers=['13.201.51.216:9092'], #kafka brokers address.
+     bootstrap_servers=['b-1.mskdev.zos4m9.c3.kafka.ap-south-1.amazonaws.com:9092', 'b-2.mskdev.zos4m9.c3.kafka.ap-south-1.amazonaws.com:9092'], #kafka brokers address.
     value_deserializer=lambda x: loads(x.decode('utf-8')))
 
 s3 = S3FileSystem()

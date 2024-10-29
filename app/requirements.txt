@@ -1,3 +1,4 @@
+#need to lock the versions
 kafka-python
 pandas
 requests

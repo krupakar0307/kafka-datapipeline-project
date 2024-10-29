@@ -27,7 +27,7 @@ df = pd.DataFrame(movies)
 
 # initialize the kafka producer
 producer = KafkaProducer(
-    bootstrap_servers=['13.201.51.216:9092'],  # Replace 'ip' with your Kafka broker's IP
+    bootstrap_servers=['b-1.mskdev.zos4m9.c3.kafka.ap-south-1.amazonaws.com:9092', 'b-2.mskdev.zos4m9.c3.kafka.ap-south-1.amazonaws.com:9092'],  #kafka brokers address.
     value_serializer=lambda x: dumps(x).encode('utf-8')
 )
 
@@ -38,7 +38,7 @@ producer = KafkaProducer(
 while True:
     dict_stock = df.sample(1).to_dict(orient="records")[0]
     producer.send('krupakar', value=dict_stock)
-    print(dict_stock)  # Print the sampled data
+    # print(dict_stock)  # Print the sampled data
     sleep(1)
 
 producer.flush()
