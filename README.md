@@ -28,6 +28,7 @@ This setup allows for efficient handling of real-time data streams, making it ea
 
 ####
 - once the MSK is ready, through bastion host run the requiements install and producer.py which gets the data and injects to topic in json format. 
+
 ![screenshot](msk-terraform/images/producer.png)
 
 - once consumer is executed parallely, data will be dumped to s3 bucket.
